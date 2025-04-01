@@ -27,12 +27,16 @@ llm = ChatGroq(
 qa_chain = RetrievalQA.from_chain_type(
     llm=llm,
     retriever=db.as_retriever(),
-    return_source_documents=False
+    return_source_documents=True
 )
 
 # UI Input
 user_query = st.text_input("Ask a question about your document:")
-
+on=st.toggle("Source Chunks")
+if on:
+    qa_chain.return_source_documents=True
+else:
+    qa_chain.return_source_documents=False
 # Button to get the answer
 if st.button("Get Answer"):
     if user_query.strip():
