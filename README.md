@@ -68,3 +68,29 @@ RAGAI is a Retrieval-Augmented Generation (RAG) system that allows users to inte
 ```bash
 git clone https://github.com/Santhoshreddy1999/RAGAI.git
 cd RAGAI
+
+2.Create Virtual Environment
+
+python -m venv ven
+# Activate it:
+# On Windows:
+ven\Scripts\activate
+# On Mac/Linux:
+source ven/bin/activate
+
+3. Install Requirements
+
+pip install -r requirements.txt
+
+4. Set Up Environment Variables
+Create a .env file in the project root and add your Groq API key:
+GROQ_API_KEY=your_groq_api_key_here
+
+5. Embed the PDF
+Place your PDF in a folder (e.g., PDF/) and edit the path in ingest.py, then run:
+
+python ingest.py
+
+6. Launch the UI
+
+streamlit run app.py
